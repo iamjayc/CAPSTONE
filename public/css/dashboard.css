@@ -1,0 +1,329 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    min-width: 50px;
+    max-width: 400px;
+    background-color: #2f4156;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent scrolling in the sidebar */
+    position: relative; /* For the resize handle */
+    transition: width 0.2s ease;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+}
+
+.sidebar-header p {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 20px;
+    color: #a8dadc;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu .logout {
+    margin-top: auto; /* Push the logout button to the bottom */
+}
+
+.menu li {
+    margin: 15px 0;
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu a i {
+    margin-right: 10px;
+}
+
+.menu a.active,
+.menu a:hover {
+    background-color: gray;
+}
+
+.menu .dropdown-toggle.active {
+    background-color: darkgray; /* Active state for Settings */
+}
+
+.submenu .submenu-item {
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.submenu .submenu-item:hover {
+    background-color: #5a697d; /* Change this color for hover effect */
+}
+
+.card {
+    position: relative; /* For absolute positioning */
+    width: 95%;
+    height: 250px;
+    background: transparent;
+    border: 0.1px solid gray;
+    border-width: thin;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the top of the card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding-top: 20px; /* Add some spacing for the title */
+}
+
+.large-card {
+    width: 600px;
+    height: 300px;
+}
+
+.card h3 {
+    position: absolute;
+    top: 10px; /* Distance from the top of the card */
+    left: 50%; /* Center horizontally */
+    transform: translateX(
+        -50%
+    ); /* Adjust for the text's width to perfectly center */
+    margin: 0; /* Remove any default margins */
+    font-size: 22px; /* Adjust as needed */
+    font-weight: normal;
+}
+
+.add-btn {
+    position: absolute; /* Position the button absolutely within the card */
+    bottom: 10px; /* Distance from the bottom of the card */
+    left: 10px;
+    background-color: white;
+    color: black;
+    border: bold;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: rgb(204, 198, 198);
+}
+
+.submenu {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+}
+
+.submenu.show {
+    display: block; /* Show submenu when dropdown is toggled */
+}
+
+.submenu a {
+    font-size: 14px;
+    color: #a8dadc;
+}
+
+.submenu a:hover {
+    color: white;
+}
+
+.user-role {
+    margin-top: auto;
+    text-align: center;
+    font-size: 14px;
+    color: #a8dadc;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f1faee;
+}
+
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+.dropdown-arrow.rotate {
+    transform: rotate(180deg); /* Rotate the arrow */
+}
+
+.resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    cursor: ew-resize;
+    background-color: transparent;
+}
+
+#delivery-records {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    justify-items: start;
+    align-items: center;
+}
+
+#delivery-records .large-card {
+    grid-column: span 2;
+    text-align: center;
+    justify-self: start;
+}
+
+#shipment-progress {
+    padding: 20px;
+    background-color: #f1faee;
+    border-radius: 8px;
+}
+
+.status-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.status-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%; /* Adjust width if necessary */
+}
+
+h3 {
+    font-size: 25px;
+}
+
+.status-item p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.status-number {
+    background-color: #2f4156;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #ddd;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #2f4156;
+    width: 0%; /* Default to 0% (Pending) */
+    border-radius: 5px;
+    transition: width 0.5s ease; /* Smooth transition */
+}
+
+.cargo-details {
+    height: 60vh;
+    background-color: white;
+    border: 0.5px solid rgb(78, 78, 78);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cargo-details h2 {
+    margin: 0;
+    font-size: 25px;
+    text-align: center;
+}
+
+.cargo-details p {
+    margin-bottom: 0;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.fuel-stats {
+    display: flex;
+    justify-content: space-around;
+    background: #2f4156;
+    color: white;
+    padding: 10px;
+    border-radius: 40px;
+    margin-bottom: 10px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.chart-container {
+    width: 90%;
+    height: 70vh;
+    margin: auto;
+    background: transparent; /* Ensure visibility */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure the canvas takes up the full container */
+.chart-container canvas {
+    width: 100% !important;
+    max-width: 100%;
+    display: block;
+}

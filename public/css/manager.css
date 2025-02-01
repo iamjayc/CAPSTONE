@@ -1,0 +1,71 @@
+/* Additional styles for the sidebar and section content */
+.menu a.active,
+.menu a:hover {
+    background-color: gray;
+}
+
+.submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.submenu.show {
+    display: block;
+}
+
+.submenu .submenu-item {
+    padding: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.submenu .submenu-item:hover {
+    background-color: #5a697d;
+}
+
+.submenu .submenu-item.active {
+    background-color: #5a697d;
+}
+
+.table-container {
+    margin-top: 20px;
+    overflow: auto;
+}
+
+.trip-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.trip-table th,
+.trip-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.trip-table th {
+    background-color: #dadada;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.actions .edit-btn {
+    color: blue; /* Color for edit icon */
+}
+
+.actions .delete-btn {
+    color: red; /* Color for delete icon */
+}
+
+.dropdown-arrow {
+    margin-left: auto;
+    transition: transform 0.3s; /* Adding transition for rotation */
+}
+
+.dropdown-arrow.rotate {
+    transform: rotate(180deg); /* Rotate arrow when active */
+}
